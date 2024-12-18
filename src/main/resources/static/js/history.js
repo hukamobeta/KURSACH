@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
         `).join('');
     }
 
-    // Обработчики фильтров
     if (statusFilter) {
         statusFilter.addEventListener('change', () => {
             loadReservations();

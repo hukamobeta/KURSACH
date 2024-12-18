@@ -1,4 +1,3 @@
-// Глобальный API для работы с бэкендом
 window.api = {
     request(url, options = {}) {
         const token = localStorage.getItem('token');
@@ -19,10 +18,8 @@ window.api = {
     }
  };
  
- // Класс для управления пользователями
  class UserManager {
     constructor() {
-        // Конструктор пустой, загрузка данных происходит при переключении вкладки
     }
  
     async loadUsers() {
@@ -51,7 +48,7 @@ window.api = {
                 throw new Error('Failed to delete user');
             }
             
-            await this.loadUsers(); // Перезагрузка списка после удаления
+            await this.loadUsers();
             showToast('Пользователь успешно удален', 'success');
         } catch (error) {
             console.error('Error deleting user:', error);
@@ -79,7 +76,7 @@ window.api = {
     }
  }
  
- // Утилиты для работы с JWT токеном
+
  function getUserRole() {
     const token = localStorage.getItem('token');
     if (!token) return null;
@@ -91,13 +88,11 @@ window.api = {
     const role = getUserRole();
     const isAdmin = role === 'ROLE_ADMIN';
     
-    // Скрываем/показываем элементы для админа
     const adminElements = document.querySelectorAll('.admin-only');
     adminElements.forEach(element => {
         element.style.display = isAdmin ? 'block' : 'none';
     });
 
-    // Скрываем/показываем статистику и пользователей
     const statsLink = document.querySelector('a[data-view="stats"]');
     const usersLink = document.querySelector('a[data-view="users"]');
     

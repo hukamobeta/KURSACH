@@ -1,4 +1,3 @@
-// toast.js
 const Toast = {
     show: function(message, type = 'info') {
         const toast = document.getElementById('toast');

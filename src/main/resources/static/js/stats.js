@@ -1,13 +1,10 @@
-// Обновление статистики парковки
 class ParkingStats {
     constructor() {
         this.statsEndpoint = '/api/spots/stats';
         this.availableElement = document.querySelector('.status-value.available');
         this.occupiedElement = document.querySelector('.status-value.occupied');
         
-        // Инициализация
         this.initStats();
-        // Обновление каждые 30 секунд
         setInterval(() => this.updateStats(), 30000);
     }
 
@@ -33,7 +30,6 @@ class ParkingStats {
     }
 }
 
-// Календарь парковки
 class ParkingCalendar {
     constructor() {
         this.calendarWrapper = document.querySelector('.calendar-wrapper');
@@ -91,12 +87,10 @@ class ParkingCalendar {
             <div class="calendar-grid">
         `;
 
-        // Добавляем пустые ячейки в начале
         for (let i = 0; i < startingDay; i++) {
             calendarHTML += '<div class="calendar-day disabled"></div>';
         }
 
-        // Добавляем дни месяца
         for (let day = 1; day <= totalDays; day++) {
             const isToday = this.isToday(year, month, day);
             calendarHTML += `
@@ -141,7 +135,6 @@ class ParkingCalendar {
             nextButton.addEventListener('click', () => this.changeMonth(1));
         }
 
-        // Добавляем обработчики для дней
         const days = this.calendarWrapper.querySelectorAll('.calendar-day:not(.disabled)');
         days.forEach(day => {
             day.addEventListener('click', (e) => this.selectDate(e.target));
@@ -165,17 +158,13 @@ class ParkingCalendar {
     }
 
     selectDate(dayElement) {
-        // Убираем активный класс у всех дней
         this.calendarWrapper.querySelectorAll('.calendar-day').forEach(day => {
             day.classList.remove('active');
         });
         
-        // Добавляем активный класс выбранному дню
         dayElement.classList.add('active');
         
-        // Получаем выбранную дату
         const selectedDate = dayElement.dataset.date;
-        // Здесь можно добавить логику обработки выбранной даты
         console.log('Selected date:', selectedDate);
     }
 }

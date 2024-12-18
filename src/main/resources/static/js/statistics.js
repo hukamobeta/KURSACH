@@ -102,9 +102,8 @@ window.loadStats = async function() {
         }
 
         const stats = await response.json();
-        console.log('Received stats:', stats); // Для отладки
+        console.log('Received stats:', stats);
 
-        // Обновляем общую статистику
         const elements = {
             totalSpots: document.getElementById('totalSpots'),
             occupiedSpots: document.getElementById('occupiedSpots'),
@@ -122,7 +121,6 @@ window.loadStats = async function() {
             elements.occupancyRate.textContent = `${rate}%`;
         }
 
-        // Уничтожаем старые графики
         if (window.hourlyChart) {
             window.hourlyChart.destroy();
         }
@@ -130,7 +128,6 @@ window.loadStats = async function() {
             window.dailyChart.destroy();
         }
 
-        // Создаем новые графики
         const hourlyCtx = document.getElementById('hourly-chart');
         const dailyCtx = document.getElementById('daily-chart');
 

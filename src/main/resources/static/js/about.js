@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     async function loadAuthorInfo() {
         try {
-            // В реальном приложении здесь был бы запрос к API
             const authorData = {
                 name: "Кукин Максим Юрьевич",
                 role: "Full-stack разработчик",

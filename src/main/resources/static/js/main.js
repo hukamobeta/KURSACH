@@ -18,7 +18,6 @@ window.api = {
     }
 };
 
-// Глобальные функции для загрузки контента вкладок
 window.loadReservations = async function() {
     const response = await fetch('/api/reservations', {
         headers: {
@@ -79,7 +78,6 @@ window.loadStats = async function() {
         const stats = await response.json();
         console.log('Received stats:', stats);
 
-        // Обновляем общую статистику
         const totalSpots = document.getElementById('totalSpots');
         const occupiedSpots = document.getElementById('occupiedSpots');
         const occupancyRate = document.getElementById('occupancyRate');
@@ -91,11 +89,9 @@ window.loadStats = async function() {
             occupancyRate.textContent = `${rate}%`;
         }
 
-        // Уничтожаем старые графики
         if (window.hourlyChart) window.hourlyChart.destroy();
         if (window.dailyChart) window.dailyChart.destroy();
 
-        // Создаем новые графики, только если данные корректны
         if (Array.isArray(stats.hourlyStats)) {
             const hourlyCtx = document.getElementById('hourly-chart');
             if (hourlyCtx) {

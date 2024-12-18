@@ -23,7 +23,7 @@ class ParkingManager {
     updateSpots(spots) {
         if (!this.parkingGrid) return;
         
-        // Группируем места по секциям
+
         const sections = spots.reduce((acc, spot) => {
             const section = spot.spotNumber.charAt(0);
             if (!acc[section]) {
@@ -33,10 +33,8 @@ class ParkingManager {
             return acc;
         }, {});
 
-        // Очищаем текущую сетку
         this.parkingGrid.innerHTML = '';
 
-        // Создаем секции
         Object.entries(sections).forEach(([sectionName, sectionSpots]) => {
             const sectionElement = document.createElement('div');
             sectionElement.className = 'parking-section';
@@ -90,7 +88,6 @@ class ParkingManager {
             this.selectedSpot = element;
         }
     
-        // Показываем панель бронирования через глобальный объект
         if (window.bookingPanel) {
             window.bookingPanel.show(spot);
         }

@@ -81,16 +81,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Event listeners
     if (profileForm) {
         profileForm.addEventListener('submit', updateProfile);
     }
 
-    // Initial load if we're on the profile page
     if (document.getElementById('profile-view')) {
         loadProfile();
     }
 
-    // Make functions available globally
     window.loadProfile = loadProfile;
 });

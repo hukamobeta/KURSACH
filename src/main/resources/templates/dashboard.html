@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
-<!-- В секции head -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Parking</title>
-    <!-- Стили -->
     <link rel="stylesheet" href="/css/dashboard.css">
-    <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- Иконки -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- WebSocket зависимости -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
@@ -48,7 +43,6 @@
     </button>
 
     <div class="app-container">
-        <!-- Боковая панель -->
         <nav class="sidebar">
             <div class="logo-container">
                 <i class="fas fa-parking logo-icon"></i>
@@ -99,17 +93,9 @@
             </div>
         </nav>
 
-        <!-- Основной контент -->
         <main class="main-content">
-            <!-- Верхняя панель -->
             <header class="top-bar">
                 <div class="search-wrapper">
-                    <!-- <div class="search-container">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" placeholder="Поиск места..." class="search-input">
-                    </div>
-                    <div class="search-results hidden">
-                    </div> -->
                 </div>
                 
                 <div class="user-menu">
@@ -121,7 +107,6 @@
                                 <button class="mark-all-read">Прочитать все</button>
                             </div>
                             <div class="notification-list">
-                                <!-- Уведомления -->
                             </div>
                         </div>
                     </div>
@@ -157,22 +142,17 @@
                                 </tr>
                             </thead>
                             <tbody id="users-list">
-                                <!-- Данные будут добавлены через JavaScript -->
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <!-- Основной контейнер для контента -->
             <div class="content-wrapper">
-                <!-- Парковка -->
                 <div class="view-container" id="parking-view">
                     <div class="parking-grid" id="parkingContainer">
-                        <!-- JS генерирует места -->
                     </div>
                 </div>
 
-                <!-- Об авторе -->
                 <div class="view-container hidden" id="about-view">
                     <div class="content-container">
                         <div class="card">
@@ -196,7 +176,6 @@
                     </div>
                 </div>
 
-                <!-- История -->
                 <div class="view-container hidden" id="history-view">
                     <div class="history-filters">
                         <select id="statusFilter">
@@ -221,13 +200,11 @@
                                 </tr>
                             </thead>
                             <tbody id="reservations-list">
-                                <!-- JS заполнит данными -->
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- Статистика -->
                 <div class="view-container hidden" id="stats-view">
                     <div class="stats-cards">
                         <div class="stats-card">
@@ -255,7 +232,6 @@
                     </div>
                 </div>
 
-                <!-- Профиль -->
                 <div class="view-container hidden" id="profile-view">
                     <div class="profile-container">
                         <h2>Профиль пользователя</h2>
@@ -296,7 +272,6 @@
         </main>
 
         <div class="modal-backdrop hidden"></div>
-        <!-- Панель бронирования -->
         <div class="booking-panel hidden">
             <div class="booking-header">
                 <h3>Бронирование места #<span class="spot-number"></span></h3>
@@ -339,16 +314,14 @@
             </form>
         </div>
     </div>
-    <!-- Уведомления -->
     <div id="toast" class="toast hidden">
         <i class="toast-icon"></i>
         <span class="toast-message"></span>
     </div>
 
-    <!-- Скрипты -->
     <script src="/js/api.js"></script>
     <script src="/js/websocket.js"></script>
-    <script src="/js/booking-panel.js"></script>  <!-- Переместить выше -->
+    <script src="/js/booking-panel.js"></script>
 
     <script src="/js/parking-grid.js"></script>
     <script src="/js/calendar.js"></script>
@@ -380,13 +353,11 @@
             const role = getUserRole();
             const isAdmin = role === 'ROLE_ADMIN';
             
-            // Скрываем/показываем элементы для админа
             const adminElements = document.querySelectorAll('.admin-only');
             adminElements.forEach(element => {
                 element.style.display = isAdmin ? 'block' : 'none';
             });
 
-            // Скрываем/показываем статистику и пользователей
             const statsLink = document.querySelector('a[data-view="stats"]');
             const usersLink = document.querySelector('a[data-view="users"]');
             

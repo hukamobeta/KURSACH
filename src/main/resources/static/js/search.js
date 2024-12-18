@@ -6,7 +6,6 @@ class SearchManager {
     }
 
     initSearch() {
-        // Debounce для производительности
         let timeout = null;
         this.searchInput.addEventListener('input', (e) => {
             clearTimeout(timeout);

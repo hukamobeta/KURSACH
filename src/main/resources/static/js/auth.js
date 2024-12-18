@@ -52,13 +52,11 @@ function checkAccess() {
     const role = getUserRole();
     const isAdmin = role === 'ROLE_ADMIN';
     
-    // Скрываем/показываем элементы для админа
     const adminElements = document.querySelectorAll('.admin-only');
     adminElements.forEach(element => {
         element.style.display = isAdmin ? 'block' : 'none';
     });
 
-    // Скрываем/показываем статистику и пользователей
     const statsLink = document.querySelector('a[data-view="stats"]');
     const usersLink = document.querySelector('a[data-view="users"]');
     

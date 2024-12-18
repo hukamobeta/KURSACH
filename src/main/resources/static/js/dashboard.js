@@ -60,7 +60,6 @@ class Dashboard {
         if (searchInput) {
             searchInput.addEventListener('input', (e) => {
                 const query = e.target.value.toLowerCase();
-                // Логика фильтрации при необходимости
             });
         }
     }

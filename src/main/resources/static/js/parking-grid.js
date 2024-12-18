@@ -131,7 +131,6 @@ class ParkingGrid {
         return element;
     }
     addSpotEventListeners(element, spot) {
-        // Эффекты при наведении
         element.addEventListener('mouseenter', () => {
             if (spot.status === 'AVAILABLE') {
                 element.style.transform = 'scale(1.02)';
@@ -144,7 +143,6 @@ class ParkingGrid {
             element.style.boxShadow = 'none';
         });
 
-        // Кнопка бронирования
         const bookBtn = element.querySelector('.book-btn');
         if (bookBtn) {
             bookBtn.addEventListener('click', () => this.handleSpotClick(spot));
@@ -242,7 +240,6 @@ class ParkingGrid {
             this.selectedSpot = element;
         }
     
-        // Добавим проверку и сообщение об ошибке
         if (!window.bookingPanel) {
             console.error('BookingPanel not initialized');
             showToast('Ошибка инициализации панели бронирования', 'error');
@@ -256,10 +253,8 @@ class ParkingGrid {
         const spotElement = this.container.querySelector(`[data-id="${spotId}"]`);
         if (!spotElement) return;
 
-        // Обновляем классы
         spotElement.className = `parking-spot ${newStatus.toLowerCase()}`;
         
-        // Обновляем содержимое
         const statusContainer = spotElement.querySelector('.spot-status, .book-btn');
         if (statusContainer) {
             if (newStatus === 'AVAILABLE') {
