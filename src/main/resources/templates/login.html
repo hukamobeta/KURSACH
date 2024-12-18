@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="/css/auth.css">
+    <script src="/js/auth.js" defer></script>
+    <script src="/js/main.js" defer></script>
+
+      
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Вход в систему</h2>
+            </div>
+            <form id="loginForm" class="form">
+                <div class="form-group">
+                    <label for="username">Логин</label>
+                    <input type="email" id="username" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" name="password" required placeholder="Введите пароль">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Войти</button>
+                </div>
+            </form>
+
+            <p class="register-link">Нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
+        </div>
+    </div>
+
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeErrorModal">&times;</span>
+            <h3>Ошибка авторизации</h3>
+            <p id="errorMessage">Неверный логин или пароль</p>
+        </div>
+    </div>
+
+</body>
+</html>

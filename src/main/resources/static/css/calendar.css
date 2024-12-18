@@ -1,0 +1,181 @@
+.datetime-picker {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    margin-top: 1rem;
+}
+
+.calendar {
+    padding: 1rem;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: var(--transition);
+    position: relative;
+}
+
+.calendar-day:hover:not(.disabled) {
+    background: var(--primary-color);
+    color: white;
+}
+
+.calendar-day.selected {
+    background: var(--primary-color);
+    color: white;
+}
+
+.calendar-day.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Адаптивная верстка */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        padding: 1rem;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .booking-panel {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+    }
+
+    .parking-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-button {
+        display: block;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .user-menu {
+        margin-left: auto;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.parking-spot {
+    animation: fadeIn 0.3s ease;
+}
+
+.booking-panel.active {
+    animation: slideIn 0.3s ease;
+}
+
+.toast.show {
+    animation: slideIn 0.3s ease;
+}
+.search-container {
+    position: relative;
+}
+
+.search-input:focus ~ .search-results {
+    display: block;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    margin-top: 0.5rem;
+    display: none;
+    z-index: 100;
+}
+
+.highlight {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--primary-color);
+    padding: 0.1em 0;
+    border-radius: 2px;
+}
+
+.parking-spot.search-match {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+    z-index: 1;
+}
+
+/* Анимация для подсветки */
+@keyframes highlightPulse {
+    0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+
+.search-match {
+    animation: highlightPulse 2s infinite;
+}
+

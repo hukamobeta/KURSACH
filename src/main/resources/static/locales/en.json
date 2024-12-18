@@ -1,0 +1,16 @@
+{
+    "login_title": "Login",
+    "register_title": "Register",
+    "dashboard_title": "Dashboard",
+    "welcome_message": "Welcome to Parking System",
+    "reserve_spot": "Reserve Spot",
+    "logout": "Logout",
+    "email_label": "Email",
+    "password_label": "Password",
+    "full_name_label": "Full Name",
+    "phone_number_label": "Phone Number",
+    "login_button": "Login",
+    "register_button": "Register",
+    "already_registered": "Already registered? Login",
+    "not_registered": "Don't have an account? Register"
+}

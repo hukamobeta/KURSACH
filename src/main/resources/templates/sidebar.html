@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="sidebar" class="sidebar">
+    <div class="logo-container">
+        <i class="fas fa-parking logo-icon"></i>
+        <span class="logo-text">Smart Parking</span>
+    </div>
+    
+    <div class="nav-links">
+        <a href="/dashboard" th:class="${currentPage == 'parking' ? 'active' : ''}" data-view="parking">
+            <i class="fas fa-car"></i>
+            <span>Парковка</span>
+        </a>
+        <a href="/history" th:class="${currentPage == 'history' ? 'active' : ''}" data-view="history">
+            <i class="fas fa-history"></i>
+            <span>История</span>
+        </a>
+        <a href="/profile" th:class="${currentPage == 'profile' ? 'active' : ''}" data-view="profile">
+            <i class="fas fa-user"></i>
+            <span>Профиль</span>
+        </a>
+        <a href="/statistics" th:class="${currentPage == 'stats' ? 'active' : ''}" data-view="stats">
+            <i class="fas fa-chart-bar"></i>
+            <span>Статистика</span>
+        </a>
+    </div>
+
+    <div class="quick-book">
+        <h3>Быстрая бронь</h3>
+        <div class="calendar-wrapper">
+            <!-- Календарь будет здесь -->
+        </div>
+        <div class="time-picker">
+            <div class="time-input">
+                <label>Начало</label>
+                <input type="time" data-type="start">
+            </div>
+            <div class="time-input">
+                <label>Конец</label>
+                <input type="time" data-type="end">
+            </div>
+        </div>
+    </div>
+
+    <div class="parking-status">
+        <div class="status-item">
+            <span class="status-label">Свободно</span>
+            <span class="status-value available">12</span>
+        </div>
+        <div class="status-item">
+            <span class="status-label">Занято</span>
+            <span class="status-value occupied">8</span>
+        </div>
+    </div>
+</div>
+</html>

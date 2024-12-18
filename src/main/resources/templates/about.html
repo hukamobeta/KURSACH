@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Об авторе</title>
+    <div th:replace="~{header :: header}"></div>
+</head>
+<body>
+    <div class="container">
+        <div th:replace="~{sidebar :: sidebar}"></div>
+        <div id="about-view" class="content">
+            <div class="content-header">
+                <h1>Об авторе</h1>
+            </div>
+            <div class="content-body">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="author-info">
+                            <div class="author-header">
+                                <img id="author-avatar" class="avatar" src="/images/avatar-placeholder.png" alt="Author Avatar">
+                                <div class="author-details">
+                                    <h2 id="author-name">Загрузка...</h2>
+                                    <p id="author-role">Разработчик</p>
+                                </div>
+                            </div>
+                            <div class="author-content">
+                                <div id="author-bio"></div>
+                                <div id="project-info"></div>
+                                <div id="contacts"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/about.js"></script>
+</body>
+</html>

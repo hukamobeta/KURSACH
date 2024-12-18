@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль - Smart Parking</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="preload">
+    <button class="mobile-menu-button">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="app-container">
+        <!-- Подключаем сайдбар -->
+        <div th:replace="fragments/sidebar :: sidebar"></div>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div th:replace="fragments/header :: header"></div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="profile-container">
+                    <h2>Профиль пользователя</h2>
+                    <form id="profile-form">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Полное имя</label>
+                            <input type="text" id="fullName" name="fullName">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Телефон</label>
+                            <input type="tel" id="phoneNumber" name="phoneNumber">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="email" disabled>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-save"></i> Сохранить
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/websocket.js"></script>
+    <script src="/js/calendar.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/profile.js"></script>
+</body>
+</html>

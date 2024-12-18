@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="header" class="top-bar">
+    <div class="search-wrapper">
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" placeholder="Поиск места..." class="search-input">
+        </div>
+        <div class="search-results hidden">
+            <!-- Результаты поиска -->
+        </div>
+    </div>
+    
+    <div class="user-menu">
+        <div class="notifications" data-count="0">
+            <i class="fas fa-bell"></i>
+            <div class="notification-dropdown hidden">
+                <div class="notification-header">
+                    <h3>Уведомления</h3>
+                    <button class="mark-all-read">Прочитать все</button>
+                </div>
+                <div class="notification-list">
+                    <!-- Уведомления -->
+                </div>
+            </div>
+        </div>
+        <div class="user-info">
+            <img src="/images/avatar-placeholder.png" alt="User" class="user-avatar">
+            <span class="user-name">Загрузка...</span>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистика - Smart Parking</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="preload">
+    <button class="mobile-menu-button">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="app-container">
+        <!-- Подключаем сайдбар -->
+        <div th:replace="fragments/sidebar :: sidebar"></div>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div th:replace="fragments/header :: header"></div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="stats-container">
+                    <h2>Статистика парковки</h2>
+                    <div class="stats-overview">
+                        <div class="stat-card total-stats">
+                            <h3>Общая статистика</h3>
+                            <div class="stat-grid">
+                                <div class="stat-item">
+                                    <span class="stat-label">Всего мест</span>
+                                    <span class="stat-value" id="totalSpots">-</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Занято</span>
+                                    <span class="stat-value" id="occupiedSpots">-</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Загруженность</span>
+                                    <span class="stat-value" id="occupancyRate">-</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <h3>Почасовая загрузка</h3>
+                            <canvas id="hourly-chart"></canvas>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <h3>Загрузка по дням недели</h3>
+                            <canvas id="daily-chart"></canvas>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <h3>Тренды бронирования</h3>
+                            <canvas id="trends-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/websocket.js"></script>
+    <script src="/js/calendar.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/statistics.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+    "login_title": "Вход",
+    "register_title": "Регистрация",
+    "dashboard_title": "Панель управления",
+    "welcome_message": "Добро пожаловать в Систему Парковки",
+    "reserve_spot": "Забронировать место",
+    "logout": "Выйти",
+    "email_label": "Электронная почта",
+    "password_label": "Пароль",
+    "full_name_label": "Полное имя",
+    "phone_number_label": "Номер телефона",
+    "login_button": "Войти",
+    "register_button": "Зарегистрироваться",
+    "already_registered": "Уже зарегистрированы? Войдите",
+    "not_registered": "Нет аккаунта? Зарегистрируйтесь"
+}
